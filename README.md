@@ -2,16 +2,8 @@
 
 Sangeun Lee(이상은)의 개인 포트폴리오 웹사이트입니다.
 
-## 🔗 Quick Links
-*   [Main](https://lee-security.github.io/)
-
-### Contact & Socials
-
-### Personal Projects
-
-### Collaborative Works
-
-### 🏆 Awards
+## 🔗 Links
+https://lee-security.github.io/
 
 ---
 
