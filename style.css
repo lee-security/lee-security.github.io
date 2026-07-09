@@ -1,0 +1,271 @@
+:root {
+  font-size: 18px;
+}
+:root {
+  --background-color: #ffffff;
+  --color: #232629;
+  --link-color: #0074cc;
+  --link-hover-color: #0a95ff;
+  --btn-color: #ffffff;
+  --btn-background-color: rgba(50, 50, 50, 1);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #202124;
+    --color: #bdc1c6;
+    --link-color: #33a7ff;
+    --link-hover-color: #3dc8ff;
+    --btn-color: #151515;
+    --btn-background-color: rgba(232, 232, 232, 1);
+  }
+}
+/* Copy of the variables in :root above */
+:root[data-color-scheme='light'] {
+  --background-color: #ffffff;
+  --color: #232629;
+  --link-color: #0074cc;
+  --link-hover-color: #0a95ff;
+  --btn-color: #ffffff;
+  --btn-background-color: rgba(50, 50, 50, 1);
+}
+/* Copy of the variables in @media (prefers-color-scheme: dark) :root above */
+:root[data-color-scheme='dark'] {
+  --background-color: #202124;
+  --color: #bdc1c6;
+  --link-color: #33a7ff;
+  --link-hover-color: #3dc8ff;
+  --btn-color: #151515;
+  --btn-background-color: rgba(232, 232, 232, 1);
+}
+/* size of iPad screen is 768px x 1024px in portrait mode */
+@media only screen and (min-width: 768px) and (min-height: 768px) {
+  :root {
+    font-size: 22px;
+  }
+}
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  font-size: 1rem;
+  background-color: var(--background-color);
+  color: var(--color);
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+h2 {
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+a,
+a:link,
+a:visited {
+  color: var(--link-color);
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  color: var(--link-hover-color);
+}
+
+/* ===== 소셜 아이콘 공통 스타일 ===== */
+.social-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin: 18px;
+  color: var(--color);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.social-icon-link:hover {
+  transform: scale(1.15);
+  color: var(--link-hover-color);
+}
+.social-icon-link svg,
+.social-icon-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  fill: currentColor;
+}
+
+/* Notion 커스텀 하늘색 로고를 다크모드 시 깔끔한 흰색 모노톤으로 전환 */
+:root[data-color-scheme='dark'] .icon-notion-img {
+  filter: grayscale(100%) brightness(2.2) contrast(1.1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-color-scheme='light']) .icon-notion-img {
+    filter: grayscale(100%) brightness(2.2) contrast(1.1);
+  }
+}
+
+.flex-box {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: auto;
+  overflow: visible;
+  text-align: left;
+}
+.flex-box.horizontal {
+  flex-direction: row;
+}
+.flex-box.no-wrap {
+  flex-wrap: nowrap;
+  padding: 0;
+}
+.margin-top-1 {
+  margin-top: 1rem;
+}
+.margin-top-1-half {
+  margin-top: 1.5rem;
+}
+.margin-top-2 {
+  margin-top: 2rem;
+}
+.margin-bottom-1 {
+  margin-bottom: 1rem;
+}
+ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+li {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.projects-list {
+  width: 100%;
+  max-width: 30rem;
+}
+.text-align-center {
+  text-align: center;
+}
+div.for-margin {
+  min-height: 20vh;
+  width: 100%;
+}
+div.color-scheme-toggle-switch-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 3rem;
+  --toggle-switch-height: 1.6rem;
+  --toggle-ball-diameter: 1.2rem;
+  --toggle-switch-width: calc(2 * var(--toggle-switch-height));
+  --toggle-ball-top: calc(
+    (var(--toggle-switch-height) - var(--toggle-ball-diameter)) / 2
+  );
+  --toggle-ball-left: calc(
+    (var(--toggle-switch-height) - var(--toggle-ball-diameter)) / 2
+  );
+  --toggle-ball-left-toggled: calc(
+    var(--toggle-switch-width) - var(--toggle-ball-diameter) -
+      var(--toggle-ball-left)
+  );
+}
+input.toggle-switch {
+  display: none;
+}
+input.toggle-switch + label {
+  display: inline-block;
+  position: relative;
+  margin: auto;
+  background-color: var(--btn-background-color);
+  height: var(--toggle-switch-height);
+  width: var(--toggle-switch-width);
+  border-radius: calc(var(--toggle-switch-height) / 2);
+  cursor: pointer;
+  transition: background-color 1s;
+}
+input.toggle-switch + label::after {
+  content: '';
+  position: absolute;
+  left: var(--toggle-ball-left);
+  top: var(--toggle-ball-top);
+  height: var(--toggle-ball-diameter);
+  width: var(--toggle-ball-diameter);
+  border-radius: 50%;
+  background-color: var(--btn-color);
+  transition: left 0.5s, background-color 1s;
+}
+input.toggle-switch:checked + label::after {
+  left: var(--toggle-ball-left-toggled);
+}
+input.toggle-switch + label::before {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  color: var(--btn-color);
+  left: var(--toggle-ball-left-toggled);
+  top: var(--toggle-ball-top);
+  height: var(--toggle-ball-diameter);
+  width: var(--toggle-ball-diameter);
+  font-size: var(--toggle-ball-diameter);
+  content: '\2600';
+}
+input.toggle-switch:checked + label::before {
+  left: var(--toggle-ball-left);
+  content: '\263E';
+}
+
+/* ===== Hobbies & Interests Grid (3x2 미니멀 그리드) ===== */
+.hobbies-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  max-width: 24rem;
+  width: 100%;
+  margin-top: 1rem;
+  justify-items: center;
+}
+.hobby-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 5.5rem;
+  height: 5.5rem;
+  color: var(--color);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.hobby-card:hover {
+  transform: translateY(-3px);
+  color: var(--link-hover-color);
+}
+.hobby-svg,
+.hobby-card img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  fill: currentColor;
+}
+.hobby-text {
+  font-size: 0.65rem;
+  margin-top: 0.4rem;
+  text-align: center;
+  font-weight: bold;
+}
