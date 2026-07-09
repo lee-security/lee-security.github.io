@@ -1,6 +1,6 @@
-# 🙋‍♂️ Sangeun's Portfolio
+Sangeun's Portfolio
 
-Sangeun Lee(이상은)의 개인 포트폴리오 웹사이트입니다.
+Sangeun Lee(이상은) 개인 포트폴리오 웹사이트입니다.
 
 ## 🔗 Links
 https://lee-security.github.io/
